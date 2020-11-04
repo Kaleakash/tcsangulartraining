@@ -1,0 +1,11 @@
+<div>
+    <h2>Login Page using TDF</h2>
+    <form #userRef="ngForm" (ngSubmit)="checkLogin(userRef.value)">
+        <label>UserName</label>
+        <input type="text" name="uname" ngModel/><br/>
+        <label>Password</label>
+        <input type="password" name="pname" ngModel/><br/>
+        <input type="submit" value="submit"/>
+    </form>
+    {{msg}}
+</div>
