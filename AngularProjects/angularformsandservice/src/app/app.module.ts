@@ -6,20 +6,27 @@ import { TemplaterefComponent } from './templateref/templateref.component';
 import { TdformComponent } from './tdform/tdform.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MdformComponent } from './mdform/mdform.component';
+import { FakeComponent } from './fake/fake.component';
+import { FakeService2 } from './fake.service2';
+
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplaterefComponent,
     TdformComponent,
-    MdformComponent
+    MdformComponent,
+    FakeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [FakeService2],    // register the service on module. 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
