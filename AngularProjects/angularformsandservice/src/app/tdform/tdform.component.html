@@ -1,11 +1,32 @@
 <div>
     <h2>Login Page using TDF</h2>
-    <form #userRef="ngForm" (ngSubmit)="checkLogin(userRef.value)">
+    <form #userRef="ngForm" (ngSubmit)="checkLogin(userRef.value)" novalidate>
+       
         <label>UserName</label>
-        <input type="text" name="uname" ngModel/><br/>
+        <input type="text" name="uname" ngModel required  
+        #nameRef="ngModel" minlength="3"/>
+        <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)">
+            <span [hidden]="!nameRef.errors.required">
+             UserName is required
+            </span>
+            <span [hidden]="!nameRef.errors.minlength">
+                Min length must be 3 characters
+            </span>
+        </div>
+        <br/>
         <label>Password</label>
-        <input type="password" name="pname" ngModel/><br/>
-        <input type="submit" value="submit"/>
-    </form>
+        <input type="password" name="pname" ngModel required
+        #passRef="ngModel" pattern="\d{3}@\D{2}"/>
+        <div *ngIf="passRef.errors && (passRef.dirty || passRef.touched)">
+            <span [hidden]="!passRef.errors.required">
+             Password is required
+            </span>
+            <span [hidden]="!passRef.errors.pattern">
+                It must follow pattern as 123@AB
+            </span>
+        </div>
+        <br/>
+        <input type="submit" [disabled]="!userRef.valid">
+      </form>
     {{msg}}
 </div>

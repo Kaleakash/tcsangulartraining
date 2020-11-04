@@ -14,12 +14,10 @@ export class MdformComponent implements OnInit {
   })
 
   constructor() { }
-
   ngOnInit(): void {
   }
   checkUser() {
     //console.log(this.userRef);
     console.log(this.userRef.value);
   }
-
 }
