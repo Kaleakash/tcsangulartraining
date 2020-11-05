@@ -10,6 +10,7 @@ import { FakeComponent } from './fake/fake.component';
 import { FakeService2 } from './fake.service2';
 
 import {HttpClientModule} from '@angular/common/http';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {HttpClientModule} from '@angular/common/http';
     TemplaterefComponent,
     TdformComponent,
     MdformComponent,
-    FakeComponent
+    FakeComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

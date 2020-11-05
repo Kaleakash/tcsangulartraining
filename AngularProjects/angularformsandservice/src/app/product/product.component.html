@@ -1,0 +1,19 @@
+<div>
+    <input type="button" value="Load Product Details"
+    (click)="loadProduct()"/>
+    <hr>
+    <div *ngIf="flag">
+    <table border="1">
+            <tr>
+                <th>PId</th>
+                <th>PName</th>
+                <th>Price</th>
+            </tr>
+            <tr *ngFor="let pp of productInfo">
+                <td>{{pp.pid}}</td>
+                <td>{{pp.pname}}</td>
+                <td>{{pp.price}}</td>
+            </tr>
+    </table>
+</div>
+</div>
