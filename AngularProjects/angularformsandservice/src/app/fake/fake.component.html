@@ -6,6 +6,25 @@
     <input type="button" value="Call function using DI" (click)="fun2()"/>
     {{msg2}}
 
+    <input type="button" value="load Info" (click)="loadDataInfo()"/>
+    <br/>
+    Id is {{this.id}}
+    Name is {{this.name}}
+    Salary is {{this.salary}}
+    <hr>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+        </tr>
+        <tr *ngFor="let emp of employeeDetails">
+                <td>{{emp.id}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.salary}}</td>
+        </tr>
+    </table>
+    <hr>
     <table border="1">
         <tr>
             <th>UserId</th>
