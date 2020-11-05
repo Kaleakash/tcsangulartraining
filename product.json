@@ -1,0 +1,6 @@
+{"product":[
+	{"pid":100,"pname":"Tv","price":95000},	
+	{"pid":101,"pname":"Computer","price":75000},	
+	{"pid":102,"pname":"Laptop","price":45000},	
+	{"pid":103,"pname":"Bike","price":255000}
+]}
