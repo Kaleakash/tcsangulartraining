@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Login Page using Get method</h2>
+    <form action="http://localhost:9090/login" method="get">
+        <input type="text" name="username" placeholder="Enter username"/>
+        <input type="password" name="password" placeholder="Enter password"/>
+        <button type="submit" value="submit">Submit</button>
+    </form>
+    <br/>
+    <form action="http://localhost:9090" method="POST">
+   <input type="submit" value="Call Post Method"/>
+    </form>
+    <br/>
+    <h2>Login Page using Post method</h2>
+    <form action="http://localhost:9090/login" method="post">
+        <input type="text" name="username" placeholder="Enter username"/>
+        <input type="password" name="password" placeholder="Enter password"/>
+        <button type="submit" value="submit">Submit</button>
+    </form>
+</body>
+</html>

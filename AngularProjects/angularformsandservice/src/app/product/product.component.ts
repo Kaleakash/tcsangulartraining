@@ -11,6 +11,7 @@ export class ProductComponent implements OnInit {
 
   productInfo:Product[];
   flag:boolean = false;
+  msg:string="Show Data";
   constructor(private productService:ProductService) { }  // DI for ProductService
   
   ngOnInit(): void {
