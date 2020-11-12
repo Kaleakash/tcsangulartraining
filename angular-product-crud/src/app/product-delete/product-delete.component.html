@@ -1,1 +1,8 @@
-<p>product-delete works!</p>
+<div>
+    <label>Product Id</label>
+    <input type="text" #prodId/>
+    <input type="button" value="Delete Product" 
+    (click)="deleteProduct(prodId.value)"/>
+    <br/>
+    {{result}}
+</div>

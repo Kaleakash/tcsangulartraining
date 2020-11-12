@@ -19,4 +19,12 @@ export class ProductService {
  return this.httpClient.post("http://localhost:9090/product/storeProduct",prodRef);
 
   }
+
+  deleteProductById(prodId):Observable<any>{
+  return this.httpClient.delete("http://localhost:9090/product/deleteProductById/"+prodId);
+  }
+
+  updateProductDetailsFromDb(prodRef):Observable<any> {
+    return this.httpClient.put("http://localhost:9090/product/updateProduct",prodRef);
+  }
 }

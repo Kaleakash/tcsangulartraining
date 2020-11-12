@@ -30,9 +30,12 @@ var StoreProductInfo = (req,res)=> {
             });
 
             product.save((err,result)=> {
-                if(err) throw err;
+                if(err){
+                    res.json({"msg":"Id must be unique"});
+                }else {
                // res.send("Record stored successfully in Db");
                res.json({"msg":"Record stored successfully"});
+                }
             });
 
 }
@@ -44,7 +47,12 @@ var UpdateProductInfo = (req,res)=> {       //{pid:100,pname:"TV 65 inch",price:
     ProductModel.update({_id:updateId},{$set:{pname:updateName,price:updatePrice}},(err,result)=> {
         if(err) throw err;
         console.log(result);
-        res.send("Record updated...."+result);
+       // res.send("Record updated...."+result);
+        if(result.nModified>0){
+            res.json({"msg":"REcord updated successfully"})
+        }else {
+            res.json({"msg":"REcord didn't update"})
+        }
     })
 }
 
@@ -55,9 +63,11 @@ var DeleteProductInfo = (req,res)=> {
            // console.log(result);
            // res.send("Record delete "+result);
            if(result.deletedCount>0){
-               res.send("Record deleted successfully...")
+               //res.send("Record deleted successfully...")
+               res.json({"msg":"Record deleted successfully"})
            }else {
-               res.send("Record not present");
+               //res.send("Record not present");
+               res.json({"msg":"Record not present"})
            }
         })   
 }
