@@ -24,20 +24,21 @@ var GetProductById = (req,res)=> {
 
 var StoreProductInfo = (req,res)=> {
             let product = new ProductModel({    //{pid:106,pname:"Computer",price:56000}
-                _id:req.body.pid,
+                _id:req.body._id,
                 pname:req.body.pname,
                 price:req.body.price
             });
 
             product.save((err,result)=> {
                 if(err) throw err;
-                res.send("Record stored successfully in Db"+result);
+               // res.send("Record stored successfully in Db");
+               res.json({"msg":"Record stored successfully"});
             });
 
 }
 
 var UpdateProductInfo = (req,res)=> {       //{pid:100,pname:"TV 65 inch",price:160000}
-    var updateId = req.body.pid;
+    var updateId = req.body._id;
     var updateName = req.body.pname;
     var updatePrice = req.body.price;
     ProductModel.update({_id:updateId},{$set:{pname:updateName,price:updatePrice}},(err,result)=> {

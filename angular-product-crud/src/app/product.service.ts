@@ -13,4 +13,10 @@ export class ProductService {
   getAllProductDetails():Observable<Product[]> {
     return this.httpClient.get<Product[]>("http://localhost:9090/product/productFromDb");
   }
+
+  storeProductDetailsInDb(prodRef): Observable<any> {
+
+ return this.httpClient.post("http://localhost:9090/product/storeProduct",prodRef);
+
+  }
 }
