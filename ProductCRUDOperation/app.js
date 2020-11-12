@@ -24,7 +24,9 @@ mongoose.connection;
 var Product = require("./router/product.router.js");
 
 //Middleware 
-app.use("/product",Product);
+app.use("/product",Product);        //http://localhost:9090/product
+
+//app.use("/customer",Customer);
 
 app.listen(port,()=>console.log(`Server is running on ${port} number`));
 
