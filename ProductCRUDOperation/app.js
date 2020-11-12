@@ -2,6 +2,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+var cors = require("cors");
 var port = 9090;
 
 //Database URL Details 
@@ -13,6 +14,7 @@ var app = express();
 //Middlware mdoules setup 
 app.use(bodyParser.json()); //converting json req data. post method  
 app.use(bodyParser.urlencoded({extended:true}));   //Enable post, put and delete body data 
+app.use(cors());            //Enable CORS Features 
 
 //Database Connection with avoid warning properties 
 mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology: true});

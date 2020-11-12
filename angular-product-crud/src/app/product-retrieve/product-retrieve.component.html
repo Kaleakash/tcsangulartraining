@@ -1,1 +1,17 @@
-<p>product-retrieve works!</p>
+<div>
+    <input type="button" value="Load Product Details" (click)="loadProductInfo()"/>
+    <div *ngIf="flag">
+            <table border="1">
+                    <tr>
+                        <th>Product Id</th>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                    </tr>
+                    <tr *ngFor="let pp of products">
+                        <td>{{pp._id}}</td>
+                        <td>{{pp.pname}}</td>
+                        <td>{{pp.price}}</td>
+                    </tr>
+            </table>
+    </div>
+</div>

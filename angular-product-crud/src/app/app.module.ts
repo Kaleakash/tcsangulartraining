@@ -8,7 +8,8 @@ import { ProductRetrieveByIdComponent } from './product-retrieve-by-id/product-r
 import { ProductStoreComponent } from './product-store/product-store.component';
 import { ProductDeleteComponent } from './product-delete/product-delete.component';
 import { ProductUpdateComponent } from './product-update/product-update.component';
-
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,7 @@ import { ProductUpdateComponent } from './product-update/product-update.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,FormsModule,HttpClientModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
