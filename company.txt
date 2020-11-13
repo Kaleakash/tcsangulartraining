@@ -1,0 +1,78 @@
+https://github.com/mgunwani/angular-authentication-project
+
+const Product = require('../models/product.js');
+const mongoose = require('mongoose'), Schema = mongoose.Schema;
+
+const CompanySchema = mongoose.Schema({
+    name: String
+});
+
+module.exports = mongoose.model('Company', CompanySchema);
+
+----------------------
+
+
+
+
+module.exports = function (app) {
+
+    // var companies = require('../controllers/company.controller.js')
+
+    app.get('/api/companies', companies.findAll);
+
+    app.get('/api/companies/:id', companies.findById);
+
+    app.post('/api/companies', companies.addCompany);
+
+    app.put('/api/companies/:id', companies.updateById);
+
+    app.delete('/api/companies/:id', companies.removeById);
+
+}
+
+-----------------------------------
+
+
+
+const Company = require('../models/company.js');
+
+
+exports.findAll = (req, res) => {
+    Company.find()
+        .then(products => {
+            res.send(products);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message
+            });
+        });
+};
+
+exports.findById = (req, res) => {
+    Company.findById(req.params.id, (err, company) => {
+        if (err) throw err;
+        res.send(company);
+    })
+};
+
+exports.addCompany = (req, res) => {
+    Company.create(req.body, (err, data) => {
+        if (err) { throw err; }
+        res.send(data);
+    })
+};
+
+exports.removeById = (req, res) => {
+    Company.findByIdAndRemove(req.params.id, (err, company) => {
+        if (err) throw err;
+        res.send(company);
+    })
+}
+
+exports.updateById = (req, res) => {
+    Company.findByIdAndUpdate(req.params.id, req.body, (err, company) => {
+        if (err) throw err;
+        res.send(company);
+    })
+}
+ads via Carbon
